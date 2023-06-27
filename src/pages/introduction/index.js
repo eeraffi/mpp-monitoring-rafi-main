@@ -1,7 +1,9 @@
 import { Flex, Heading, Text } from "@chakra-ui/react";
 import UserLayout from "../../components/layout/UserLayout";
+import Calculation from "../../utils/calculation";
 
 export default function Introduction() {
+  Calculation()
   return (
     <UserLayout>
       <Flex direction='column' gap='4' textAlign='justify'>
