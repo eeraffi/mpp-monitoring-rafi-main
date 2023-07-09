@@ -30,6 +30,11 @@ export default function Graph() {
 
   const options = {
     // maintainAspectRatio: false,
+    elements:{
+      point:{
+        radius:0
+      }
+    },
     responsive: true,
     plugins: {
       legend: {
@@ -40,6 +45,11 @@ export default function Graph() {
         text: "Carbon Intensity Indicator",
       },
     },
+    scales:{
+      y:{
+        max:75,
+      }
+    }
   };
 
   const labels = Array.from(
@@ -48,6 +58,7 @@ export default function Graph() {
   );
 
   const dataShip = ship === 'ferry' ? dataFerry : dataKencana
+  const labelName = ship === 'ferry' ? "CII DF8" : "CII DK9"
 
   // const labels = [
   //   "January",
@@ -59,13 +70,46 @@ export default function Graph() {
   //   "July",
   // ];
   // faker.date.betweens({ count: 3, from: "2015-01-01", to: "2015-01-05" });
+  console.log(Array(dataShip).fill(39.418));
 
   const data = {
     labels,
     datasets: [
       {
-        label: "KM. Dharma Ferry VIII",
+        label: "E",
+        data: Array(dataShip.length).fill(67.42),
+        borderColor:'#520000',
+        backgroundColor:'#520000'
+      },
+      {
+        label: "D",
+        data: Array(dataShip.length).fill(59.127),
+        borderColor:'red',
+        backgroundColor:'red'
+      },
+      {
+        label: "C",
+        data: Array(dataShip.length).fill(51.866),
+        borderColor:'orange',
+        backgroundColor:'orange'
+      },
+      {
+        label: "B",
+        data: Array(dataShip.length).fill(47.17),
+        borderColor:'yellow',
+        backgroundColor:'yellow'
+      },
+      {
+        label: "A",
+        data: Array(dataShip.length).fill(39.418),
+        borderColor:'green',
+        backgroundColor:'green'
+      },
+      {
+        label: labelName,
         data: dataShip,
+        borderColor: "blue",
+        backgroundColor: "blue",
       },
     ],
   };
