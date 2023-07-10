@@ -35,7 +35,7 @@ export default function Tracker() {
   useEffect(() => {
     const interval = setInterval(() => {
       setTime((now) => now + 1);
-    }, 200);
+    }, 1000);
 
     return () => clearInterval(interval);
   }, []);
@@ -46,7 +46,6 @@ export default function Tracker() {
     }
   }, [time]);
 
-  console.log(currentCoordinates)
 
   return (
     <UserLayout>
