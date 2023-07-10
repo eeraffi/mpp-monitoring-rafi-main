@@ -12,7 +12,9 @@ export default function Monitor() {
     setShip: state.setShip,
     fetchData: state.fetchData
   }));
-  
+
+
+
 
   return (
     <UserLayout>
